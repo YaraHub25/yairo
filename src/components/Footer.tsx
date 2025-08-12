@@ -42,7 +42,7 @@ const Footer = () => {
         
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 Waitly. All rights reserved.
+            © 2025 Waitly. All rights reserved.
           </p>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
             <span className="text-xs text-muted-foreground">Made with</span>
