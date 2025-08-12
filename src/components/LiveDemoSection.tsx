@@ -80,19 +80,48 @@ const LiveDemoSection = () => {
               
               <div className="space-y-4">
                 <h4 className="text-lg font-semibold">Wait Time Trends (Today)</h4>
-                <div className="bg-cyber-surface rounded-lg p-4">
-                  <div className="flex items-end justify-between h-32 gap-1">
-                    {demoData.chartData.map((value, index) => (
-                      <div key={index} className="flex flex-col items-center gap-1">
-                        <div 
-                          className="bg-gradient-neon rounded-t-sm w-6 transition-all duration-300 hover:brightness-125"
-                          style={{ height: `${(value / 22) * 100}%` }}
-                        />
-                        <span className="text-xs text-muted-foreground">
-                          {9 + index}am
-                        </span>
+                <div className="bg-cyber-surface rounded-lg p-6">
+                  <div className="flex items-end justify-between h-40 gap-2">
+                    {demoData.chartData.map((value, index) => {
+                      const getBarColor = (val: number) => {
+                        if (val <= 8) return 'bg-green-500';
+                        if (val <= 15) return 'bg-yellow-500';
+                        return 'bg-red-500';
+                      };
+                      
+                      return (
+                        <div key={index} className="flex flex-col items-center gap-2 relative group">
+                          <div className="relative">
+                            <div 
+                              className={`${getBarColor(value)} rounded-t-md w-8 transition-all duration-300 hover:brightness-110 relative`}
+                              style={{ height: `${(value / 22) * 140}px` }}
+                            />
+                            <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-background border border-border rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                              {value}m
+                            </div>
+                          </div>
+                          <span className="text-xs text-muted-foreground font-medium">
+                            {9 + index}am
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="flex justify-between items-center mt-4 pt-4 border-t border-border">
+                    <div className="flex items-center gap-4 text-xs">
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 bg-green-500 rounded-sm"></div>
+                        <span className="text-muted-foreground">Good (≤8m)</span>
                       </div>
-                    ))}
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 bg-yellow-500 rounded-sm"></div>
+                        <span className="text-muted-foreground">Fair (9-15m)</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 bg-red-500 rounded-sm"></div>
+                        <span className="text-muted-foreground">Poor (&gt;15m)</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

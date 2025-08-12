@@ -6,7 +6,12 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold gradient-text">Waitly</h1>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-neon rounded-lg blur-lg opacity-30 animate-glow-pulse"></div>
+              <div className="relative bg-cyber-surface rounded-lg px-4 py-2 border border-primary/30">
+                <h1 className="text-2xl font-bold gradient-text">Waitly</h1>
+              </div>
+            </div>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">

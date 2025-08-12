@@ -10,7 +10,7 @@ const BusinessSection = () => {
             For <span className="gradient-text">Businesses</span>
           </h2>
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Use Waitly's anonymized wait-time reports to optimize your customer service staffing 
+            Use Waitly's anonymized wait-time reports to enhance your customer service staffing 
             and improve customer satisfaction.
           </p>
           
@@ -29,9 +29,9 @@ const BusinessSection = () => {
               <div className="p-3 bg-secondary/10 rounded-lg w-fit mx-auto mb-4">
                 <Users className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Staffing Insights</h3>
+              <h3 className="text-lg font-semibold mb-2">Staffing Intelligence</h3>
               <p className="text-muted-foreground text-sm">
-                Optimize staffing levels based on historical data
+                Enhance staffing levels based on historical data
               </p>
             </div>
             
@@ -55,8 +55,8 @@ const BusinessSection = () => {
               </h3>
             </div>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join forward-thinking companies using Waitly's insights to provide 
-              better customer experiences and optimize their support operations.
+              Join forward-thinking companies using Waitly's analytics to provide 
+              better customer experiences and enhance their support operations.
             </p>
             <Button variant="hero" size="lg" className="text-lg">
               Get Business Access
