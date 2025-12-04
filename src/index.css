@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Waitly Design System - Cyberpunk Theme with Neon Accents
+/* yairo Design System - Cyberpunk Theme with Neon Accents
 All colors MUST be HSL.
 */
 
@@ -45,7 +45,7 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Custom Waitly tokens */
+    /* Custom yairo tokens */
     --neon-turquoise: 174 100% 48%;
     --neon-blue: 200 100% 50%;
     --cyber-bg: 222 25% 8%;

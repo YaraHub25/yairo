@@ -16,7 +16,7 @@ const HeroSection = () => {
             
             <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
               Check real-time support wait times and plan your calls smarter. 
-              Stop wasting time on hold — see when companies are actually available.
+              Stop wasting time on hold and see when companies are actually available.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -48,7 +48,7 @@ const HeroSection = () => {
             <div className="relative z-10">
               <img 
                 src={heroImage} 
-                alt="Waitly real-time wait times visualization" 
+                alt="yairo real-time wait times visualization" 
                 className="w-full max-w-lg mx-auto rounded-lg shadow-cyber hover-scale"
               />
             </div>

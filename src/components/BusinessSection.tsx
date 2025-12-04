@@ -10,7 +10,7 @@ const BusinessSection = () => {
             For <span className="gradient-text">Businesses</span>
           </h2>
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Use Waitly's anonymized wait-time reports to enhance your customer service staffing 
+            Use yairo's anonymized wait-time reports to enhance your customer service staffing 
             and improve customer satisfaction.
           </p>
           
@@ -55,7 +55,7 @@ const BusinessSection = () => {
               </h3>
             </div>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join forward-thinking companies using Waitly's analytics to provide 
+              Join forward-thinking companies using yairo's analytics to provide 
               better customer experiences and enhance their support operations.
             </p>
             <Button variant="hero" size="lg" className="text-lg">

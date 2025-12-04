@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold gradient-text">Waitly</h3>
+            <h3 className="text-xl font-bold gradient-text">yairo</h3>
             <p className="text-muted-foreground text-sm">
               Know the wait before you call. Smart timing for better customer service experiences.
             </p>
@@ -42,7 +42,7 @@ const Footer = () => {
         
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2025 Waitly. All rights reserved.
+            © 2025 yairo. All rights reserved.
           </p>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
             <span className="text-xs text-muted-foreground">Made with</span>

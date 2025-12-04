@@ -65,7 +65,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Waitly cyberpunk colors
+				// yairo cyberpunk colors
 				'neon-turquoise': 'hsl(var(--neon-turquoise))',
 				'neon-blue': 'hsl(var(--neon-blue))',
 				'cyber-bg': 'hsl(var(--cyber-bg))',

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";   // NEW
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-neon rounded-lg blur-lg opacity-30 animate-glow-pulse"></div>
               <div className="relative bg-cyber-surface rounded-lg px-4 py-2 border border-primary/30">
-                <h1 className="text-2xl font-bold gradient-text">Waitly</h1>
+                <h1 className="text-2xl font-bold gradient-text">yairo</h1>
               </div>
             </div>
           </div>
@@ -25,10 +26,19 @@ const Header = () => {
               Live Demo
             </a>
           </div>
-          
-          <Button variant="hero" className="animate-glow-pulse">
-            Join Waitlist
-          </Button>
+
+          {/* NEW BUTTON GROUP */}
+          <div className="flex items-center space-x-4">
+            <Link to="/check">
+              <Button variant="outline">
+                Check Wait Time
+              </Button>
+            </Link>
+
+            <Button variant="hero" className="animate-glow-pulse">
+              Join Waitlist
+            </Button>
+          </div>
         </nav>
       </div>
     </header>
