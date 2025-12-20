@@ -10,9 +10,9 @@ const HeroSection = () => {
           {/* LEFT CONTENT */}
           <div className="space-y-10 animate-slide-up">
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-              Know the{" "}
-              <span className="gradient-text">Wait</span>{" "}
-              Before You Call
+              Call at the{" "}
+              <span className="gradient-text">Right</span>{" "}
+              Time. Every Time
             </h1>
 
             <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
@@ -35,13 +35,13 @@ const HeroSection = () => {
                 <Clock className="w-6 h-6 text-secondary" />
                 <h3 className="font-semibold">Smart Call Timing</h3>
                 <p className="text-sm text-muted-foreground">
-                  See the best time today to reach support fastest.
+                  See the best time today to reach support faster.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <BarChart3 className="w-6 h-6 text-primary" />
-                <h3 className="font-semibold">Trends & Insights</h3>
+                <h3 className="font-semibold">Call Patterns</h3>
                 <p className="text-sm text-muted-foreground">
                   Understand peak hours and avoid long waits.
                 </p>
