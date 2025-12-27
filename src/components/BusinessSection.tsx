@@ -16,7 +16,7 @@ const BusinessSection = () => {
           </div>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-            Early access teams use real wait-time data to improve customer support decisions.
+            Call when it's fastest.
           </p>
 
           <Button variant="hero" size="lg" className="animate-glow-pulse">
