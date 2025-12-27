@@ -1,4 +1,4 @@
-import { Phone, Clock, BarChart3 } from "lucide-react";
+import { BarChart3 } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.jpg";
 
 const HeroSection = () => {
@@ -12,41 +12,28 @@ const HeroSection = () => {
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
               Call at the{" "}
               <span className="gradient-text">Right</span>{" "}
-              Time. Every Time
+              Time. Every Time.
             </h1>
 
             <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
               Know exactly when companies are available and call at the perfect time.
-
             </p>
 
-            {/* FEATURE HIGHLIGHTS (EXPANDED) */}
-            <div className="grid sm:grid-cols-3 gap-8 pt-6 max-w-xl">
-              
-              <div className="space-y-2">
-                <Phone className="w-6 h-6 text-primary" />
-                <h3 className="font-semibold">Real-time Wait Times</h3>
-                <p className="text-sm text-muted-foreground">
-                  Instant updates from real customer data.
-                </p>
+            {/* SINGLE FEATURE HIGHLIGHT */}
+            <div className="pt-6 max-w-md">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <BarChart3 className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">
+                    Call Patterns
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Understand peak hours and avoid long waits.
+                  </p>
+                </div>
               </div>
-
-              <div className="space-y-2">
-                <Clock className="w-6 h-6 text-secondary" />
-                <h3 className="font-semibold">Smart Call Timing</h3>
-                <p className="text-sm text-muted-foreground">
-                  See the best time today to reach support faster.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <BarChart3 className="w-6 h-6 text-primary" />
-                <h3 className="font-semibold">Call Patterns</h3>
-                <p className="text-sm text-muted-foreground">
-                  Understand peak hours and avoid long waits.
-                </p>
-              </div>
-
             </div>
           </div>
 
