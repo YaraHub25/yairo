@@ -16,9 +16,7 @@ const BusinessSection = () => {
           </div>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-            Early access companies are exploring analytics to improve customer
-            experiences and make better support decisions based on real wait
-            time data, not estimates.
+            Early access teams use real wait-time data to improve customer support decisions.
           </p>
 
           <Button variant="hero" size="lg" className="animate-glow-pulse">
