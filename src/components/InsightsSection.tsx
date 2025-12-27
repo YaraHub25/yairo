@@ -9,7 +9,7 @@ const InsightsSection = () => {
             Smart <span className="gradient-text">Analytics</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get data-driven recommendations on when to call for the shortest wait times.
+            See how long the wait is.
           </p>
         </div>
         
