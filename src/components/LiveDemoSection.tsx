@@ -36,8 +36,7 @@ const LiveDemoSection = () => {
             Try Our <span className="gradient-text">Live Demo</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Search any company and see real-time wait times, peak hours, and
-            smart recommendations.
+            Search a company 
           </p>
         </div>
 
