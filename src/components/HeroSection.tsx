@@ -36,7 +36,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-xl text-muted-foreground leading-relaxed">
-              check when the wait is shortest.
+              Know when to call.
             </p>
           </div>
 
