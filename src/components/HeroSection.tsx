@@ -2,31 +2,33 @@ import heroImage from "@/assets/hero-illustration.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen py-24 overflow-hidden bg-background">
+    <section className="relative overflow-hidden bg-background">
       
-      {/* Subtle radial glow behind headline (color-based, not image) */}
+      {/* Unified atmospheric gradient column */}
       <div
         aria-hidden
         className="
           pointer-events-none
           absolute
+          inset-x-0
           top-[-200px]
-          left-1/2
-          -translate-x-1/2
-          w-[900px]
-          h-[900px]
-          rounded-full
-          bg-primary/10
-          blur-[120px]
-          opacity-60
+          mx-auto
+          h-[1200px]
+          w-[1000px]
+          bg-gradient-to-b
+          from-primary/10
+          via-primary/5
+          to-transparent
+          blur-[140px]
+          opacity-70
         "
       />
 
-      <div className="container mx-auto px-6 relative">
-        <div className="flex flex-col items-center text-center gap-14">
+      <div className="container relative mx-auto px-6 pt-32 pb-24">
+        <div className="flex flex-col items-center text-center">
 
-          {/* HEADLINE */}
-          <div className="max-w-2xl space-y-6">
+          {/* TEXT BLOCK */}
+          <div className="max-w-[620px] space-y-6">
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
               Call when{" "}
               <span className="gradient-text">support</span>{" "}
@@ -34,38 +36,17 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Call at the perfect time.
+              check when the wait is shortest.
             </p>
           </div>
 
           {/* IMAGE */}
-          <div className="relative flex justify-center">
-
-            {/* Ambient environment bleed (very soft, neutral) */}
-            <div
-              aria-hidden
-              className="
-                absolute
-                inset-x-0
-                top-1/3
-                mx-auto
-                h-[420px]
-                w-[900px]
-                rounded-full
-                bg-muted/40
-                blur-3xl
-                opacity-60
-              "
-            />
-
-            {/* PHONE UI */}
+          <div className="relative mt-16 flex justify-center">
             <img
               src={heroImage}
               alt="Yairo showing current wait time and best time to call"
               className="
-                relative
-                z-10
-                w-[700px]
+                w-[680px]
                 max-w-full
                 rounded-3xl
                 -translate-y-1
@@ -81,3 +62,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
