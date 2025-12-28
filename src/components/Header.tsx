@@ -1,39 +1,45 @@
 import { Button } from "@/components/ui/button";
-import yairoLogo from "@/assets/yairo-logo.png";
+import yairoMark from "@/assets/yairo-mark.png";
 
 const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 py-4">
-        <nav className="flex items-center justify-between">
+      <div className="container mx-auto px-6 h-16">
+        <nav className="flex items-center justify-between h-full">
 
-          {/* LOGO */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-neon rounded-lg blur-lg opacity-30 animate-glow-pulse" />
-            <div className="relative bg-cyber-surface rounded-lg px-4 py-2 border border-primary/30 flex items-center">
-              <img
-                src={yairoLogo}
-                alt="yairo logo"
-                className="h-8 w-auto"
-              />
-            </div>
-          </div>
+          {/* LOGOMARK ONLY */}
+          <a href="/" className="flex items-center">
+            <img
+              src={yairoMark}
+              alt="Yairo"
+              className="h-6 w-auto opacity-85 hover:opacity-100 hover:scale-[1.03] transition-all"
+            />
+          </a>
 
           {/* NAV */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#how-it-works" className="text-foreground/80 hover:text-primary">
+          <div className="hidden md:flex items-center space-x-8 text-sm">
+            <a
+              href="#how-it-works"
+              className="text-foreground/80 hover:text-primary transition-colors"
+            >
               How it Works
             </a>
-            <a href="#for-businesses" className="text-foreground/80 hover:text-primary">
+            <a
+              href="#for-businesses"
+              className="text-foreground/80 hover:text-primary transition-colors"
+            >
               For Businesses
             </a>
-            <a href="#live-demo" className="text-foreground/80 hover:text-primary">
+            <a
+              href="#live-demo"
+              className="text-foreground/80 hover:text-primary transition-colors"
+            >
               Live Demo
             </a>
           </div>
 
-          {/* SINGLE CTA */}
-          <Button variant="hero" className="animate-glow-pulse">
+          {/* CTA */}
+          <Button variant="hero">
             Join the Waitlist
           </Button>
 
