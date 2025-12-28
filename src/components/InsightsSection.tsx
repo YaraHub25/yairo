@@ -2,81 +2,104 @@ import { Clock, Users, TrendingUp, Calendar } from "lucide-react";
 
 const InsightsSection = () => {
   return (
-    <section className="py-20">
+    <section className="py-14">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
-            Smart <span className="gradient-text">Analytics</span>
+
+        {/* Section Header */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-semibold">
+            Know when to <span className="gradient-text">call</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            See the wait before you dial.
-          </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
           {/* Best Times Card */}
-          <div className="bg-card rounded-lg p-8 border border-border shadow-cyber hover-scale group">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                <Clock className="w-6 h-6 text-primary" />
+          <div className="bg-card rounded-xl p-6 border border-border shadow-sm">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2.5 bg-primary/10 rounded-lg">
+                <Clock className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">Best Times to Call</h3>
+              <h3 className="text-lg font-medium">Best times to call</h3>
             </div>
-            
-            <div className="space-y-4">
+
+            <div className="space-y-3">
               <div className="flex justify-between items-center p-3 bg-cyber-surface rounded-lg">
-                <span className="text-muted-foreground">Weekdays</span>
-                <span className="font-semibold text-green-400">10 AM - 2 PM</span>
+                <span className="text-sm text-muted-foreground">Weekdays</span>
+                <span className="text-sm font-medium text-green-400">
+                  10 AM – 2 PM
+                </span>
               </div>
               <div className="flex justify-between items-center p-3 bg-cyber-surface rounded-lg">
-                <span className="text-muted-foreground">Weekends</span>
-                <span className="font-semibold text-green-400">11 AM - 3 PM</span>
+                <span className="text-sm text-muted-foreground">Weekends</span>
+                <span className="text-sm font-medium text-green-400">
+                  11 AM – 3 PM
+                </span>
               </div>
               <div className="flex justify-between items-center p-3 bg-cyber-surface rounded-lg">
-                <span className="text-muted-foreground">Average wait</span>
-                <span className="font-semibold text-primary">4.2 minutes</span>
+                <span className="text-sm text-muted-foreground">Average wait</span>
+                <span className="text-sm font-medium text-primary">
+                  4.2 minutes
+                </span>
               </div>
             </div>
-            
-            <div className="mt-6 p-4 bg-gradient-cyber rounded-lg">
+
+            <div className="mt-4 p-3 bg-muted/40 rounded-lg">
               <div className="flex items-center gap-2 text-sm">
                 <TrendingUp className="w-4 h-4 text-green-400" />
-                <span className="text-green-400">23% faster than average</span>
+                <span className="text-muted-foreground">
+                  23% faster than average
+                </span>
               </div>
             </div>
           </div>
-          
+
           {/* Peak Volumes Card */}
-          <div className="bg-card rounded-lg p-8 border border-border shadow-cyber hover-scale group">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-secondary/10 rounded-lg group-hover:bg-secondary/20 transition-colors">
-                <Users className="w-6 h-6 text-secondary" />
+          <div className="bg-card rounded-xl p-6 border border-border shadow-sm">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2.5 bg-secondary/10 rounded-lg">
+                <Users className="w-5 h-5 text-secondary" />
               </div>
-              <h3 className="text-xl font-semibold">Peak Call Volumes</h3>
+              <h3 className="text-lg font-medium">Busy hours to avoid</h3>
             </div>
-            
-            <div className="space-y-4">
+
+            <div className="space-y-3">
               <div className="flex justify-between items-center p-3 bg-cyber-surface rounded-lg">
-                <span className="text-muted-foreground">Monday mornings</span>
-                <span className="font-semibold text-red-400">High volume</span>
+                <span className="text-sm text-muted-foreground">
+                  Monday mornings
+                </span>
+                <span className="text-sm font-medium text-red-400">
+                  High volume
+                </span>
               </div>
               <div className="flex justify-between items-center p-3 bg-cyber-surface rounded-lg">
-                <span className="text-muted-foreground">Friday afternoons</span>
-                <span className="font-semibold text-yellow-400">Medium volume</span>
+                <span className="text-sm text-muted-foreground">
+                  Friday afternoons
+                </span>
+                <span className="text-sm font-medium text-yellow-400">
+                  Medium volume
+                </span>
               </div>
               <div className="flex justify-between items-center p-3 bg-cyber-surface rounded-lg">
-                <span className="text-muted-foreground">Late evenings</span>
-                <span className="font-semibold text-green-400">Low volume</span>
+                <span className="text-sm text-muted-foreground">
+                  Late evenings
+                </span>
+                <span className="text-sm font-medium text-green-400">
+                  Low volume
+                </span>
               </div>
             </div>
-            
-            <div className="mt-6 p-4 bg-gradient-cyber rounded-lg">
+
+            <div className="mt-4 p-3 bg-muted/40 rounded-lg">
               <div className="flex items-center gap-2 text-sm">
-                <Calendar className="w-4 h-4 text-secondary" />
-                <span className="text-secondary">Updated every 15 minutes</span>
+                <Calendar className="w-4 h-4 text-muted-foreground" />
+                <span className="text-muted-foreground">
+                  Updated every 15 minutes
+                </span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
