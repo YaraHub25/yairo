@@ -1,4 +1,4 @@
-import logo from "@/assets/yairo-logo.png";
+import yairoMark from "@/assets/yairo-mark.png";
 
 const Footer = () => {
   return (
@@ -7,15 +7,21 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
 
           {/* Brand */}
-          <div className="space-y-3">
-            <img
-              src={logo}
-              alt="yairo logo"
-              className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity"
-            />
-            <p className="text-sm text-muted-foreground max-w-xs">
-              Know the wait before you call.
-            </p>
+      <div className="space-y-3">
+        <div className="flex items-center gap-2">
+  <img
+    src={yairoMark}
+    alt="Yairo"
+    className="h-6 w-auto opacity-90"
+  />
+  <span className="text-sm font-medium tracking-wide text-foreground">
+    yairo
+  </span>
+      </div>
+
+  <p className="text-sm text-muted-foreground max-w-xs">
+    Know the wait before you call.
+  </p>
           </div>
 
           {/* Product */}
