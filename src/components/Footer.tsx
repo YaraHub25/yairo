@@ -1,11 +1,18 @@
+import logo from "@/assets/yairo-logo.png";
+
 const Footer = () => {
   return (
     <footer className="bg-cyber-surface border-t border-border py-12">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8">
+
           {/* Brand */}
           <div className="space-y-3">
-            <h3 className="text-xl font-bold gradient-text">yairo</h3>
+            <img
+              src={logo}
+              alt="yairo logo"
+              className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
             <p className="text-sm text-muted-foreground max-w-xs">
               Know the wait before you call.
             </p>
