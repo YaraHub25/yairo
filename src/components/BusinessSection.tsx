@@ -16,11 +16,10 @@ const BusinessSection = () => {
           </div>
 
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-            Call when it's fastest.
           </p>
 
           <Button variant="hero" size="lg" className="animate-glow-pulse">
-            Join Business Waitlist
+            Join as a business 
           </Button>
         </div>
       </div>
