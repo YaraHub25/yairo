@@ -3,7 +3,7 @@ import heroImage from "@/assets/hero-illustration.jpg";
 const HeroSection = () => {
   return (
     <section className="relative overflow-hidden bg-background">
-      
+
       {/* Unified atmospheric gradient column */}
       <div
         aria-hidden
@@ -11,7 +11,7 @@ const HeroSection = () => {
           pointer-events-none
           absolute
           inset-x-0
-          top-[-200px]
+          top-[-220px]
           mx-auto
           h-[1200px]
           w-[1000px]
@@ -24,11 +24,11 @@ const HeroSection = () => {
         "
       />
 
-      <div className="container relative mx-auto px-6 pt-32 pb-24">
+      <div className="container relative mx-auto px-6 pt-40 pb-16">
         <div className="flex flex-col items-center text-center">
 
           {/* TEXT BLOCK */}
-          <div className="max-w-[620px] space-y-6">
+          <div className="max-w-[640px] space-y-5">
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
               Call when{" "}
               <span className="gradient-text">support</span>{" "}
@@ -41,7 +41,7 @@ const HeroSection = () => {
           </div>
 
           {/* IMAGE */}
-          <div className="relative mt-16 flex justify-center">
+          <div className="relative mt-12 flex justify-center">
             <img
               src={heroImage}
               alt="Yairo showing current wait time and best time to call"
@@ -49,8 +49,8 @@ const HeroSection = () => {
                 w-[680px]
                 max-w-full
                 rounded-3xl
-                -translate-y-1
-                shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)]
+                -translate-y-[2px]
+                shadow-[0_24px_60px_-20px_rgba(0,0,0,0.45)]
               "
             />
           </div>
