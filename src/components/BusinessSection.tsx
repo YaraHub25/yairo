@@ -19,7 +19,7 @@ const BusinessSection = () => {
           </p>
 
           <Button variant="hero" size="lg" className="animate-glow-pulse">
-            Join as a business 
+            For business 
           </Button>
         </div>
       </div>
