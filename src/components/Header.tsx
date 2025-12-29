@@ -29,7 +29,7 @@ const Header = () => {
                 href="#how-it-works"
                 className="text-foreground/80 hover:text-primary transition-colors"
               >
-                How it Works
+                
               </a>
               <a
                 href="#for-businesses"
