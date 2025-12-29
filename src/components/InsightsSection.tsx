@@ -8,7 +8,7 @@ const InsightsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-8">
           <h2 className="text-3xl font-semibold">
-            Know when to <span className="gradient-text">call</span>
+            See the wait before you <span className="gradient-text">dial</span>
           </h2>
         </div>
 
