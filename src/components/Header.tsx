@@ -47,7 +47,6 @@ const Header = () => {
 
             {/* RIGHT ACTIONS */}
             <div className="flex items-center gap-3">
-              {/* CTA */}
               <Button
                 variant="hero"
                 onClick={() => {
@@ -58,7 +57,6 @@ const Header = () => {
                 Get early access
               </Button>
 
-              {/* MOBILE MENU BUTTON */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="md:hidden p-2 rounded-md hover:bg-muted transition-colors"
