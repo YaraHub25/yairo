@@ -35,7 +35,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#live-demo" className="hover:text-primary transition-colors">
-                  Live Demo
+                  Live Demo 
                 </a>
               </li>
             </ul>
