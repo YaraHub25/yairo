@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { X, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/lib/supabaseClient";
 
 interface EarlyAccessModalProps {
   open: boolean;
@@ -11,6 +12,7 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Mount animation trigger
   useEffect(() => {
@@ -34,9 +36,25 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
 
   if (!open) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Early access email:", email);
+
+    if (!email) return;
+
+    setLoading(true);
+
+    const { error } = await supabase
+      .from("early_access_signups")
+      .insert([{ email }]);
+
+    setLoading(false);
+
+    if (error) {
+      console.error("Supabase error:", error);
+      alert("Something went wrong. Please try again.");
+      return;
+    }
+
     setSubmitted(true);
   };
 
@@ -88,8 +106,8 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
                 className="w-full rounded-lg border border-border bg-background px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
 
-              <Button type="submit" className="w-full">
-                Request early access
+              <Button type="submit" className="w-full" disabled={loading}>
+                {loading ? "Submitting..." : "Request early access"}
               </Button>
             </form>
           </>
