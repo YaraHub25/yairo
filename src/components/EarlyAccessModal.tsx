@@ -50,8 +50,11 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
     setLoading(false);
 
     if (error) {
-      console.error("Supabase error:", error);
-      alert("Something went wrong. Please try again.");
+      if (error.code == "23505") {
+        alert("This email is already on the list.");
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
       return;
     }
 
