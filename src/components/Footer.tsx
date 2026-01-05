@@ -79,7 +79,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            © 2025 yairo. All rights reserved.
+            © 2026 yairo. All rights reserved.
           </p>
 
           <p className="text-xs text-muted-foreground">
