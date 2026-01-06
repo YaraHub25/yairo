@@ -37,34 +37,34 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
   if (!open) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!email) return;
+  if (!email || loading) return;
 
-    setLoading(true);
+  setLoading(true);
 
   const { error } = await supabase
-   .from("early_access_signups")
-   .insert([
-    {
+    .from("early_access_signups")
+    .insert({
       email,
       source: "web",
-    },
-  ]);
+    });
 
-    setLoading(false);
+  setLoading(false);
 
-    if (error) {
-      if (error.code == "23505") {
-        alert("This email is already on the list.");
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-      return;
+  if (error) {
+    // Unique constraint violation (duplicate email)
+    if (error.code === "23505") {
+      alert("This email is already on the list.");
+    } else {
+      console.error(error);
+      alert("Something went wrong. Please try again.");
     }
+    return;
+  }
 
-    setSubmitted(true);
-  };
+  setSubmitted(true);
+};
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
