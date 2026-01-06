@@ -43,8 +43,9 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
 
   setLoading(true);
 
-  const { error } = await supabase
-    .rpc("request_early_access", { email_input: email });
+  const { error } = await supabase.rpc("request_early_access", {
+  email_input: email,
+});
 
   setLoading(false);
 
