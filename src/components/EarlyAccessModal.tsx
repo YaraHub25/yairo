@@ -43,9 +43,14 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
 
     setLoading(true);
 
-    const { error } = await supabase
-      .from("early_access_signups")
-      .insert([{ email }]);
+  const { error } = await supabase
+   .from("early_access_signups")
+   .insert([
+    {
+      email,
+      source: "web",
+    },
+  ]);
 
     setLoading(false);
 
