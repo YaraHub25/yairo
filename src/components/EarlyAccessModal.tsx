@@ -43,24 +43,24 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
 
   setLoading(true);
 
-  const { error } = await supabase.rpc("request_early_access", {
+  const { data, error } = await supabase.rpc("request_early_access", {
   email_input: email,
 });
 
   setLoading(false);
 
-  if (error) {
-    // Unique constraint violation (duplicate email)
-    if (error.code === "23505") {
-      alert("This email is already on the list.");
-    } else {
-      console.error(error);
-      alert("Something went wrong. Please try again.");
-    }
-    return;
-  }
+if (error) {
+  console.error(error);
+  alert("Server error. Please try again.");
+  return;
+}
 
-  setSubmitted(true);
+if (!data?.[0]?.success) {
+  alert(data?.[0]?.message || "Signup failed");
+  return;
+}
+
+setSubmitted(true);
 };
 
   return (
