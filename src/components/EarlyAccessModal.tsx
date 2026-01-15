@@ -55,8 +55,10 @@ if (error) {
   return;
 }
 
-if (!data?.[0]?.success) {
-  alert(data?.[0]?.message || "Signup failed");
+const result = data?.[0];
+
+if (!result?.success) {
+  alert(result?.message || "Signup failed");
   return;
 }
 
