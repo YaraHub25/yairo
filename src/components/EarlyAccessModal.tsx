@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { X, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabaseClient";
+import { Alert } from "./ui/alert";
 
 interface EarlyAccessModalProps {
   open: boolean;
@@ -43,9 +44,10 @@ const EarlyAccessModal = ({ open, onClose }: EarlyAccessModalProps) => {
 
   setLoading(true);
 
-  const { data, error } = await supabase.rpc("request_early_access", {
-  email_input: email,
-});
+  const { data, error } = await supabase.rpc(
+    "request_early_access",
+     {email_input: email }
+    );
 
   setLoading(false);
 
@@ -58,7 +60,7 @@ if (error) {
 const result = data?.[0];
 
 if (!result?.success) {
-  alert(result?.message || "Signup failed");
+  alert(result?.message ?? "Signup failed");
   return;
 }
 
