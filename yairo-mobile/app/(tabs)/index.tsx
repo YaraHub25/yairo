@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
-
+import { supabase } from "@/lib/supabaseClient";
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
@@ -10,11 +10,17 @@ import { ThemedView } from '@/components/themed-view';
 
 export default function HomeScreen() {
   useEffect(() => {
-    console.log(
-      'Supabase URL:',
-      process.env.EXPO_PUBLIC_SUPABASE_URL
-    );
-  }, []);
+    const testSupabase = async () => {
+    const { data, error } = await supabase
+      .from("early_access_signups")
+      .select("id")
+      .limit(1);
+
+    console.log("Supabase test:", { data, error });
+  };
+
+  testSupabase();
+}, []);
 
   return (
     <ParallaxScrollView

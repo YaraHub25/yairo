@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "extra": {
       "EXPO_PUBLIC_SUPABASE_URL": "https://bezenzyupnsliemhwxsn.supabase.co",
-      "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlemVuenl1cG5zbGllbWh3eHNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY0MjU0MDAsImV4cCI6MTkxMTk4MTQwMH0.Dh8YVYjv3YkY1b2r-1b1t1WL7N3Y6T3rQ8g0Kf3b2kU"
+      "EXPO_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlemVuenl1cG5zbGllbWh3eHNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0OTU1OTcsImV4cCI6MjA4MzA3MTU5N30.FxwBHXC8vYYO_bIqKB8KBejc-kIkwZWAYUv9JaXeJw0"
     },
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
