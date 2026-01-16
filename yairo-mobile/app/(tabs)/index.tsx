@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { View, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  Alert,
+  ActivityIndicator,
+  StyleSheet,
+} from 'react-native';
 import { supabase } from '@/lib/supabaseClient';
 
 export default function HomeScreen() {
@@ -13,8 +21,8 @@ export default function HomeScreen() {
     );
 
     if (error) {
-      console.error(error);
-      return { success: false, message: 'Server error' };
+      console.error('RPC error:', error);
+      return { success: false, message: 'Server error. Try again.' };
     }
 
     const result = data?.[0];
@@ -43,7 +51,7 @@ export default function HomeScreen() {
     setLoading(false);
 
     Alert.alert(
-      result.success ? 'Success' : 'Error',
+      result.success ? "You're in 🎉" : 'Oops',
       result.message
     );
 
@@ -54,6 +62,12 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Join early access</Text>
+
+      <Text style={styles.subtitle}>
+        Be the first to know when Yairo launches.
+      </Text>
+
       <TextInput
         placeholder="you@example.com"
         value={email}
@@ -63,11 +77,11 @@ export default function HomeScreen() {
         style={styles.input}
       />
 
-      <Button
-        title={loading ? 'Submitting...' : 'Join early access'}
-        onPress={handleSubmit}
-        disabled={loading}
-      />
+      {loading ? (
+        <ActivityIndicator size="small" />
+      ) : (
+        <Button title="Join early access" onPress={handleSubmit} />
+      )}
     </View>
   );
 }
@@ -75,12 +89,20 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 24,
+    gap: 12,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: '600',
+  },
+  subtitle: {
+    color: '#666',
+    marginBottom: 8,
   },
   input: {
     borderWidth: 1,
     borderColor: '#ccc',
+    borderRadius: 8,
     padding: 12,
-    marginBottom: 12,
-    borderRadius: 6,
   },
 });
