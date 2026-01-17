@@ -3,18 +3,24 @@ import HeroSection from "@/components/HeroSection";
 import DemoCard from "@/components/DemoCard";
 import SearchSection from "@/components/SearchSection";
 import InsightsSection from "@/components/InsightsSection";
+import Navigation from '@/components/Navigation';
 
-<InsightsSection />
 
 export default function HomeScreen() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <HeroSection />
-      <DemoCard />
-      <SearchSection />
-    </ScrollView>
+    <>
+      <Navigation />
+
+      <ScrollView contentContainerStyle={styles.container}>
+        <HeroSection />
+        <DemoCard />
+        <SearchSection />
+        <InsightsSection />
+      </ScrollView>
+    </>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
