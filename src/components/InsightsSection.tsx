@@ -1,5 +1,6 @@
 import { Clock, Users, TrendingUp, Calendar } from "lucide-react";
 
+
 const InsightsSection = () => {
   return (
     <section className="py-14">
