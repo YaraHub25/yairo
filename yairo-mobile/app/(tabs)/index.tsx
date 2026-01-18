@@ -11,10 +11,11 @@ import Footer from "@/components/Footer";
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={styles.screen} edges={["top"]}>
+    <View style={{ flex: 1 }}>
       <Navigation />
 
       <ScrollView
+        style={{ flex: 1 }}                     
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
       >
@@ -25,7 +26,7 @@ export default function HomeScreen() {
         <BusinessCTA />
         <Footer />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
