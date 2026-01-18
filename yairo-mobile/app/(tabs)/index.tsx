@@ -11,7 +11,10 @@ export default function HomeScreen() {
     <>
       <Navigation />
 
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
         <HeroSection />
         <DemoCard />
         <SearchSection />
@@ -25,6 +28,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    paddingBottom: 40,
+    paddingBottom: 80,  
+    flexGrow: 1,      
   },
 });
