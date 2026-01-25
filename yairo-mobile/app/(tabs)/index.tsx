@@ -1,23 +1,27 @@
-import { View, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import DemoCard from "@/components/DemoCard";
 import SearchSection from "@/components/SearchSection";
 import InsightsSection from "@/components/InsightsSection";
 import BusinessCTA from "@/components/BusinessCTA";
-import Navigation from "@/components/Navigation";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Footer from "@/components/Footer";
-
 
 export default function HomeScreen() {
   return (
-    <View style={{ flex: 1 }}>
-      <Navigation />
+    <View style={styles.screen}>
+      {/* Top navigation — NOT scrollable */}
+      <SafeAreaView edges={["top"]}>
+        <Navigation />
+      </SafeAreaView>
 
+      {/* Scrollable content */}
       <ScrollView
-        style={{ flex: 1 }}                     
-        contentContainerStyle={styles.container}
+        contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
       >
         <HeroSection />
         <DemoCard />
@@ -32,11 +36,11 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1, // 🔑 THIS enables scrolling
+    flex: 1,
     backgroundColor: "#0f0f0f",
   },
-  container: {
+  content: {
     padding: 20,
-    paddingBottom: 120, // space for tab bar + CTA/footer
+    paddingBottom: 160, // space for tab bar + footer
   },
 });
