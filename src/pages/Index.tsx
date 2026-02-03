@@ -5,6 +5,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import InsightsSection from "@/components/InsightsSection";
 import BusinessSection from "@/components/BusinessSection";
 import Footer from "@/components/Footer";
+import ReportWaitTime from "@/components/ReportWaitTime";
 
 const Index = () => {
   return (
@@ -18,6 +19,12 @@ const Index = () => {
         <LogoMarquee />
         
         <LiveDemoSection />
+
+        <ReportWaitTime 
+          companyId="test-uuid-123"
+          companyName="Netflix Support"
+        />
+        
         <BusinessSection />
       </main>
 

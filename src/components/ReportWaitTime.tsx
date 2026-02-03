@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
-import { Clock, Send, CheckCircle } from 'lucide-react';
-
-// Import your Supabase client (you already have @supabase/supabase-js installed)
-// Make sure you have this file set up in your project:
-// import { supabase } from '@/lib/supabaseClient';
+import { useState } from "react";
+import { Clock, Send, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { supabase } from "@/lib/supabaseClient";
 
 /**
  * ReportWaitTime Component
  * 
- * This component lets users report their actual wait time after calling a company.
- * It's the core of your crowdsourcing strategy - completely legal and user-driven!
+ * Lets users report their actual wait time after calling a company.
+ * This is the core of your crowdsourcing strategy - completely legal and user-driven!
  * 
  * Props:
  * - companyId: UUID of the company from your companies table
  * - companyName: Display name (e.g., "Netflix Support")
- * - onSuccess: Callback function after successful submission
+ * - onSuccess: Optional callback function after successful submission
  */
 
-export default function ReportWaitTime({ companyId, companyName, onSuccess }) {
-  const [waitMinutes, setWaitMinutes] = useState('');
+interface ReportWaitTimeProps {
+  companyId: string;
+  companyName: string;
+  onSuccess?: () => void;
+}
+
+export default function ReportWaitTime({ companyId, companyName, onSuccess }: ReportWaitTimeProps) {
+  const [waitMinutes, setWaitMinutes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
@@ -34,30 +39,20 @@ export default function ReportWaitTime({ companyId, companyName, onSuccess }) {
       const dayOfWeek = now.toLocaleDateString('en-US', { weekday: 'long' });
       const hourOfDay = now.getHours();
 
-      // TODO: Replace this with your actual Supabase client
-      // Example:
-      // const { data, error: insertError } = await supabase
-      //   .from('wait_time_reports')
-      //   .insert({
-      //     company_id: companyId,
-      //     wait_minutes: parseInt(waitMinutes),
-      //     day_of_week: dayOfWeek,
-      //     hour_of_day: hourOfDay,
-      //   });
+      // Insert wait time report into Supabase
+      const { data, error: insertError } = await supabase
+        .from('wait_time_reports')
+        .insert({
+          company_id: companyId,
+          wait_minutes: parseInt(waitMinutes),
+          day_of_week: dayOfWeek,
+          hour_of_day: hourOfDay,
+        })
+        .select();
 
-      // For now, we'll simulate the API call
-      console.log('Submitting wait time report:', {
-        company_id: companyId,
-        wait_minutes: parseInt(waitMinutes),
-        day_of_week: dayOfWeek,
-        hour_of_day: hourOfDay,
-      });
+      if (insertError) throw insertError;
 
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // Uncomment this when you integrate Supabase:
-      // if (insertError) throw insertError;
+      console.log('Wait time report submitted:', data);
 
       setSubmitted(true);
       
@@ -82,12 +77,12 @@ export default function ReportWaitTime({ companyId, companyName, onSuccess }) {
 
   if (submitted) {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-        <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-3" />
-        <h3 className="text-lg font-semibold text-green-900 mb-1">
+      <div className="bg-gradient-to-br from-green-500/10 to-green-600/10 border border-green-500/30 rounded-xl p-6 text-center">
+        <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-3 neon-glow-green" />
+        <h3 className="text-lg font-semibold text-foreground mb-1">
           Thanks for helping!
         </h3>
-        <p className="text-green-700 text-sm">
+        <p className="text-muted-foreground text-sm">
           Your report helps others know when to call {companyName}
         </p>
       </div>
@@ -95,51 +90,52 @@ export default function ReportWaitTime({ companyId, companyName, onSuccess }) {
   }
 
   return (
-    <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm">
+    <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
       <div className="flex items-center gap-3 mb-4">
-        <div className="bg-cyan-100 p-2 rounded-lg">
-          <Clock className="w-5 h-5 text-cyan-600" />
+        <div className="bg-primary/10 p-2 rounded-lg">
+          <Clock className="w-5 h-5 text-primary" />
         </div>
         <div>
-          <h3 className="font-semibold text-slate-900">Report Wait Time</h3>
-          <p className="text-sm text-slate-600">Just called {companyName}?</p>
+          <h3 className="font-semibold text-foreground">Report Wait Time</h3>
+          <p className="text-sm text-muted-foreground">Just called {companyName}?</p>
         </div>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-slate-700 mb-2">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-foreground mb-2">
             How long did you wait? (minutes)
           </label>
-          <input
+          <Input
             type="number"
             min="0"
             max="180"
             value={waitMinutes}
             onChange={(e) => setWaitMinutes(e.target.value)}
             placeholder="e.g., 8"
-            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
+            className="bg-cyber-surface border-primary/20 focus:border-primary"
             required
           />
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-muted-foreground mt-1">
             Enter 0 if you got through immediately
           </p>
         </div>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+          <div className="p-3 bg-destructive/10 border border-destructive/30 rounded-lg text-destructive text-sm">
             {error}
           </div>
         )}
 
-        <button
+        <Button
           type="submit"
           disabled={isSubmitting || !waitMinutes}
-          className="w-full bg-cyan-500 hover:bg-cyan-600 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors"
+          variant="hero"
+          className="w-full"
         >
           {isSubmitting ? (
             <>
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
               Submitting...
             </>
           ) : (
@@ -148,9 +144,9 @@ export default function ReportWaitTime({ companyId, companyName, onSuccess }) {
               Submit Report
             </>
           )}
-        </button>
+        </Button>
 
-        <p className="text-xs text-slate-500 mt-3 text-center">
+        <p className="text-xs text-muted-foreground text-center">
           Anonymous and helps others save time
         </p>
       </form>
@@ -165,12 +161,13 @@ export default function ReportWaitTime({ companyId, companyName, onSuccess }) {
  * import ReportWaitTime from '@/components/ReportWaitTime';
  * 
  * function CompanyDetailPage() {
+ *   // Get this from your database query or route params
  *   const companyId = "uuid-from-your-database";
  *   const companyName = "Netflix Support";
  * 
  *   return (
- *     <div>
- *       <h1>Netflix Support Wait Times</h1>
+ *     <div className="container mx-auto p-6">
+ *       <h1 className="text-3xl font-bold mb-6">Netflix Support Wait Times</h1>
  *       
  *       <ReportWaitTime 
  *         companyId={companyId}
