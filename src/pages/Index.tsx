@@ -21,7 +21,7 @@ const Index = () => {
         <LiveDemoSection />
 
         <ReportWaitTime 
-          companyId="test-uuid-123"
+          companyId="51b71c31-4c7c-4316-aec9-a752fccb70e2"
           companyName="Netflix Support"
         />
         
