@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabaseClient";
 import WaitTimeStats from "@/components/WaitTimeStats";
-import ReportWaitTime from "@/components/ReportWaitTime";
+import CallTracker from "@/components/CallTracker";
 
 /**
  * CompanySearch Component
@@ -183,13 +183,10 @@ export default function CompanySearch() {
               <h3 className="text-lg font-semibold text-foreground mb-4">
                 Help the Community
               </h3>
-              <ReportWaitTime
+              <CallTracker 
                 companyId={selectedCompany.id}
                 companyName={selectedCompany.name}
-                onSuccess={() => {
-                  // Optional: You could trigger a stats refresh here
-                  console.log('Wait time reported for', selectedCompany.name);
-                }}
+                phoneNumber={selectedCompany.phone_number || "1-800-000-0000"}
               />
             </div>
           </div>
