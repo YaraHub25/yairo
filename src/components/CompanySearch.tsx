@@ -1,21 +1,10 @@
 import { useState, useEffect } from "react";
-import { Search } from "lucide-react";
+import { Search, Phone, TrendingDown, TrendingUp, BarChart3 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabaseClient";
 import WaitTimeStats from "@/components/WaitTimeStats";
 import CallTracker from "@/components/CallTracker";
-
-/**
- * CompanySearch Component
- * 
- * Allows users to search for companies and view their wait time stats
- * 
- * Features:
- * - Search bar to find companies
- * - Displays search results
- * - Shows stats + report form when a company is selected
- */
 
 interface Company {
   id: string;
@@ -31,12 +20,10 @@ export default function CompanySearch() {
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Load all companies on mount
   useEffect(() => {
     fetchAllCompanies();
   }, []);
 
-  // Filter companies when search query changes
   useEffect(() => {
     if (searchQuery.trim() === "") {
       setSearchResults([]);
@@ -82,26 +69,17 @@ export default function CompanySearch() {
 
   return (
     <div className="space-y-8">
-      {/* Search Bar */}
+      {/* Search Bar - Matches Figma */}
       <div className="max-w-2xl mx-auto">
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
           <Input
             type="text"
-            placeholder="Search for a company (e.g., Netflix, Apple, Bank of America)..."
+            placeholder="Search a company..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-12 pr-24 h-14 text-base bg-card border-primary/20 focus:border-primary"
+            className="pl-12 h-14 text-base bg-card border-primary/20 focus:border-primary"
           />
-          {searchQuery && (
-            <Button
-              onClick={handleClearSearch}
-              variant="ghost"
-              className="absolute right-2 top-1/2 -translate-y-1/2 h-10 px-4 text-sm"
-            >
-              Clear
-            </Button>
-          )}
         </div>
 
         {/* Search Results Dropdown */}
@@ -133,67 +111,50 @@ export default function CompanySearch() {
               No companies found matching "{searchQuery}"
             </p>
             <p className="text-sm text-muted-foreground mt-2">
-              Try searching for Netflix, Hulu, Apple, or Bank of America
+              Try: Netflix, Hulu, Apple, Bank of America
             </p>
           </div>
         )}
       </div>
 
-      {/* Selected Company Details */}
+      {/* Selected Company - STACKED LAYOUT (Matches Figma) */}
       {selectedCompany && (
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Company Info Card */}
-          <div className="bg-card border border-border rounded-xl p-6">
-            <div className="flex items-start justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-foreground mb-2">
-                  {selectedCompany.name}
-                </h2>
-                <div className="space-y-1">
-                  {selectedCompany.category && (
-                    <p className="text-sm text-muted-foreground">
-                      Category: <span className="text-primary">{selectedCompany.category}</span>
-                    </p>
-                  )}
-                  {selectedCompany.phone_number && (
-                    <p className="text-sm text-muted-foreground">
-                      Phone: <span className="text-foreground">{selectedCompany.phone_number}</span>
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
+        <div className="max-w-3xl mx-auto space-y-6">
+          
+          {/* Header: See the wait before you dial */}
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-foreground mb-2">
+              See the wait before you <span className="gradient-text">dial</span>
+            </h2>
           </div>
 
-          {/* Stats and Report Form Side by Side */}
-          <div className="grid lg:grid-cols-2 gap-6">
-            {/* Wait Time Stats */}
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-4">
-                Wait Time Insights
-              </h3>
-              <WaitTimeStats
-                companyId={selectedCompany.id}
-                companyName={selectedCompany.name}
-              />
-            </div>
+          {/* Wait Time Cards (Best/Avoid) - Matches Figma */}
+          <WaitTimeStats
+            companyId={selectedCompany.id}
+            companyName={selectedCompany.name}
+          />
 
-            {/* Report Form */}
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-4">
-                Help the Community
-              </h3>
-              <CallTracker 
-                companyId={selectedCompany.id}
-                companyName={selectedCompany.name}
-                phoneNumber={selectedCompany.phone_number || "1-800-000-0000"}
-              />
-            </div>
+          {/* Divider */}
+          <div className="border-t border-border my-8"></div>
+
+          {/* Help the Community Section */}
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-4">
+              Help the Community
+            </h3>
+            
+            {/* Company Info + Call Button */}
+            <CallTracker 
+              companyId={selectedCompany.id}
+              companyName={selectedCompany.name}
+              phoneNumber={selectedCompany.phone_number || "1-800-000-0000"}
+            />
           </div>
+
         </div>
       )}
 
-      {/* Empty State - No Search, No Selection */}
+      {/* Empty State - Matches Figma */}
       {!searchQuery && !selectedCompany && (
         <div className="max-w-2xl mx-auto text-center py-12">
           <div className="bg-card border border-border rounded-xl p-8">
@@ -240,26 +201,3 @@ export default function CompanySearch() {
     </div>
   );
 }
-
-
-/**
- * USAGE EXAMPLE in Index.tsx:
- * 
- * import CompanySearch from '@/components/CompanySearch';
- * 
- * // Replace your current ReportWaitTime section with:
- * <section className="py-16 bg-gradient-cyber">
- *   <div className="container mx-auto px-6">
- *     <div className="text-center mb-12">
- *       <h2 className="text-3xl font-semibold mb-3">
- *         Check <span className="gradient-text">Wait Times</span>
- *       </h2>
- *       <p className="text-base text-muted-foreground max-w-xl mx-auto">
- *         Search for any company to see current wait times and help others
- *       </p>
- *     </div>
- *     
- *     <CompanySearch />
- *   </div>
- * </section>
- */
